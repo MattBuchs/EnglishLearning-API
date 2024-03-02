@@ -1,2 +1,23 @@
 ### Find all Games
 GET http://localhost:1234/
+
+### Creating a user
+POST http://localhost:1234/signup
+Content-Type: application/json
+
+{
+    "name": "user2",
+    "email": "test2@test.com",
+    "password": "password",
+    "confirmPassword": "password"
+}
+
+### login a user
+POST http://localhost:1234/signin
+Content-Type: application/json
+
+{
+    "email": "test2@test.com",
+    "password": "password",
+    "confirmPassword": "password"
+}
