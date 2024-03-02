@@ -1,0 +1,2 @@
+### Find all Games
+GET http://localhost:1234/

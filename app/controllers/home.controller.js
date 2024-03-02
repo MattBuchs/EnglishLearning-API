@@ -1,7 +1,9 @@
-export default {
-    home(req, res) {
-        console.log("HOME");
+import * as datamappers from "../models/index.datamapper.js";
 
-        return res.json(true);
+export default {
+    async home(req, res) {
+        const test = await datamappers.categoryDatamapper.findAll();
+
+        return res.json(test);
     },
 };
