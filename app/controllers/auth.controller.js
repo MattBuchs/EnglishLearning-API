@@ -109,4 +109,10 @@ export default {
                 .json({ error: `Internal Server Error: ${err.message}` });
         }
     },
+
+    async test(req, res) {
+        const result = await datamappers.userDatamapper.findAll();
+
+        return res.status(200).json(result);
+    },
 };
