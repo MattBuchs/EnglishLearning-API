@@ -5,10 +5,10 @@ import * as datamappers from "../models/index.datamapper.js";
 
 export default {
     async signup(req, res) {
-        const { name, email, password, confirmPassword } = req.body;
+        const { username, email, password, confirmPassword } = req.body;
 
         try {
-            if (!name || !email || !password || !confirmPassword) {
+            if (!username || !email || !password || !confirmPassword) {
                 throw new Error("Missing values", { cause: { code: 400 } });
             }
 
@@ -25,13 +25,23 @@ export default {
                 );
             }
 
+            const existUsername = await datamappers.userDatamapper.findOne(
+                "username",
+                username
+            );
+            if (existUsername) {
+                throw new Error("This username already exists", {
+                    cause: { code: 409 },
+                });
+            }
+
             const existEmail = await datamappers.userDatamapper.findOne(
                 "email",
                 email
             );
             if (existEmail) {
-                throw new Error("An error has occurred", {
-                    cause: { code: 404 },
+                throw new Error("This email already exists", {
+                    cause: { code: 409 },
                 });
             }
 
@@ -40,7 +50,7 @@ export default {
             const encryptedPass = await bcrypt.hash(password, salt);
 
             const createUser = await datamappers.userDatamapper.create({
-                name,
+                username,
                 email,
                 password: encryptedPass,
                 is_admin: false,
@@ -91,6 +101,7 @@ export default {
             const user = {
                 userId: existUser.id,
                 username: existUser.username,
+                isAdmin: existUser.is_admin,
             };
 
             // creation of the token
