@@ -34,11 +34,16 @@ Content-Type: application/json
 ### Create Card
 POST http://localhost:1234/card
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE2LCJ1c2VybmFtZSI6InVzZXIyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTcxMDE4NTc5OSwiZXhwIjoxNzEwMTg5Mzk5fQ.3T79HpMDZL2AjfrEUTPsn55Zj5hoHXpQZEPDK6Rrqjg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE2LCJ1c2VybmFtZSI6InVzZXIyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTcxMDIzODU1MCwiZXhwIjoxNzEwMjQyMTUwfQ.m4zvgDY9GJsv2P7wskZfrKuJJKtgn6lG1M2uYlyft_A
 
 {
-    "sentence": "tell",
-    "translation": "dire",
+    "sentence": "forbid",
+    "translation": "Interdire",
     "isPublic": false,
     "categoryId": 1
 }
+
+### Get my cards
+GET http://localhost:1234/card
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE2LCJ1c2VybmFtZSI6InVzZXIyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTcxMDIzODU1MCwiZXhwIjoxNzEwMjQyMTUwfQ.m4zvgDY9GJsv2P7wskZfrKuJJKtgn6lG1M2uYlyft_A

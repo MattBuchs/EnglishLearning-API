@@ -22,6 +22,19 @@ export default {
         }
     },
 
+    async getMyCards(req, res) {
+        const { userId } = req.user;
+        const cards = await datamappers.cardDatamapper.findByKeyValue(
+            "user_id",
+            userId
+        );
+
+        if (!cards)
+            throw new Error("Cards not found", { cause: { code: 404 } });
+
+        return res.json({ cards });
+    },
+
     async createCard(req, res) {
         const { sentence, translation, isPublic, categoryId } = req.body;
         const { userId } = req.user;

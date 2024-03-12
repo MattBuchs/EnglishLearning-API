@@ -12,7 +12,10 @@ router.route("/signin").post(controllerAuth.signin);
 router.route("/test").get(authenticateToken, controllerAuth.test);
 router.route("/all-public-cards").get(controllerCards.getAllPublicCards);
 
-router.route("/card").post(authenticateToken, controllerCards.createCard);
+router
+    .route("/card")
+    .get(authenticateToken, controllerCards.getMyCards)
+    .post(authenticateToken, controllerCards.createCard);
 router.route("/categories").get(controllerCategory.getCategories);
 
 export default router;

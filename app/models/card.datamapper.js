@@ -25,10 +25,11 @@ export default class CardDatamapper extends CoreDatamapper {
         const result = await this.client.query(
             `
             SELECT * FROM "card" 
-            WHERE "sentence" = '${sentence}' 
-            AND "translation" = '${translation}'
-            AND "user_id" = ${userId};
-            `
+            WHERE "sentence" = $1
+            AND "translation" = $2
+            AND "user_id" = $3
+            `,
+            [sentence, translation, userId]
         );
 
         return result.rows[0];
