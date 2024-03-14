@@ -106,7 +106,7 @@ export default {
 
             // creation of the token
             const token = jwt.sign(user, process.env.SECRET_KEY, {
-                expiresIn: "1h",
+                expiresIn: "1000000",
             });
 
             return res.json({ token });

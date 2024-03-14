@@ -47,3 +47,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE2LCJ1c
 GET http://localhost:1234/card
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE2LCJ1c2VybmFtZSI6InVzZXIyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTcxMDIzODU1MCwiZXhwIjoxNzEwMjQyMTUwfQ.m4zvgDY9GJsv2P7wskZfrKuJJKtgn6lG1M2uYlyft_A
+
+### Get user profile
+GET http://localhost:1234/user/user2
+Content-Type: application/json
